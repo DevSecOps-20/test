@@ -1,19 +1,25 @@
 name: ci.yml
 
 on:
-  pull_request:
-    push:
-      workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  Terrascan:
-    name: Terrascan Scan
+  Test:
+    name: React native app build
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
 
-      - name: Helm Template and Scanning
-        run: |
-          helm template charts/k8tz/ --output-dir "./charts/output"
-          terrascan scan -i k8s
+    env:
+      product_name: 'React native app'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: 'true'

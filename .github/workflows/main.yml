@@ -16,7 +16,7 @@ jobs:
         uses: zaproxy/action-full-scan@v0.9.0
         with:
           token: ${{ secrets.NEW_GITHUB_TOKEN }}
-          target: 'https://shibin-chrisby.yolasite.com/'
+          target: 'https://www.cityunionbank.com/'
       
       - name: list
         run: ls 

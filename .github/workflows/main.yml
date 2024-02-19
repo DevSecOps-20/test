@@ -15,11 +15,13 @@ jobs:
       product_name: 'React native app'
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.9.0
         with:
-          ruby-version: '3.3'
-          bundler-cache: 'true'
+          target: 'https://shibin-chrisby.yolasite.com/'
+
+      - name: Upload ZAP Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: zap-report
+          path: /zap/wrk/zap-report.html

@@ -8,11 +8,8 @@ on:
 
 jobs:
   Test:
-    name: React native app build
+    name: zap scan
     runs-on: ubuntu-latest
-
-    env:
-      product_name: 'React native app'
 
     steps:
       - name: ZAP Scan
@@ -20,8 +17,5 @@ jobs:
         with:
           target: 'https://shibin-chrisby.yolasite.com/'
 
-      - name: Upload ZAP Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: zap-report
-          path: /zap/wrk/zap-report.html
+      - name: list
+        run: ls 

@@ -15,12 +15,13 @@ jobs:
       - name: docker pull zap
         run: |
          docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py -t 'https://shibin-chrisby.yolasite.com/' -i > test.xml
-
       - name: list
-        run: ls 
+        run: |
+          ls
+          cat test.xml 
 
       - name: Upload ZAP Report
         uses: actions/upload-artifact@v2
         with:
           name: zap-report xml
-          path: testreport.xml
+          path: test.xml

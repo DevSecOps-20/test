@@ -20,3 +20,9 @@ jobs:
       
       - name: list
         run: ls 
+
+      - name: Upload ZAP Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: zap-report
+          path: /zap/wrk/zap-report.html

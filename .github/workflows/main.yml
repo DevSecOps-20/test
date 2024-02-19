@@ -17,7 +17,7 @@ jobs:
         with:
           token: ${{ secrets.NEW_GITHUB_TOKEN }}
           target: 'https://shibin-chrisby.yolasite.com/'
-          cmd_options: '-x'
+          cmd_options: '-x report_html.html'
       
       - name: list
         run: ls 

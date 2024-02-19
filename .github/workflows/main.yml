@@ -9,13 +9,12 @@ on:
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
-    name: Scan the webapplication
+    name: zap scan
     steps:
   
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.9.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           target: 'https://shibin-chrisby.yolasite.com/'
       
       - name: list

@@ -12,16 +12,16 @@ jobs:
     name: ZAP Scan
     steps:        
       - name: Checkout
-		uses: actions/checkout@v4
-		with:
-		  repository: 'naveen2131-hue/action-baseline'
-		env:
-		  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/checkout@v4
+        with:
+          repository: 'naveen2131-hue/action-baseline'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ZAP Scan
-		uses: docker://owasp/zap2docker-stable
-		with:
-		  args: cd dist/index.js && docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t  https://shibin-chrisby.yolasite.com/ -x report_xml.xml
+        uses: docker://owasp/zap2docker-stable
+        with:
+          args: cd dist/index.js && docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t  https://shibin-chrisby.yolasite.com/ -x report_xml.xml
 
       - name: List Files
         run: |

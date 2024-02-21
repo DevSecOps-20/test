@@ -12,17 +12,22 @@ jobs:
     name: zap scan
     steps:
 
+      - name: Create XML placeholder file
+        run: |
+         touch report_xml.xml
+         chmod a+w report_xml.xml
+
       - name: docker pull zap
         run: |
-         docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py -t https://shibin-chrisby.yolasite.com/ -x report_xml
+         docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py -t https://shibin-chrisby.yolasite.com/ -x report_xml.xml
          
       - name: list
         run: |
           ls
-          cat report_xml
+          cat report_xml.xml
 
       - name: Upload ZAP Report
         uses: actions/upload-artifact@v2
         with:
           name: zap-report xml
-          path: report_xml
+          path: report_xml.xml

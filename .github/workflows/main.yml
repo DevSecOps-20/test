@@ -12,11 +12,11 @@ jobs:
     name: ZAP Scan
     steps:        
       - name: Checkout
-		uses: actions/checkout@v4
-		with:
-		  repository: 'naveen2131-hue/action-baseline'
-		env:
-		  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/checkout@v4
+        with:
+          repository: 'naveen2131-hue/action-baseline'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: List Files
         run: |

@@ -19,10 +19,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ZAP Scan
-        uses: docker://owasp/zap2docker-stable
-        with:
-          args: zap-baseline.py -t  https://shibin-chrisby.yolasite.com/ -x /github/workspace/report_xml.xml
-        working-directory: dist/index.js
+	    run: |
+		  cd dist/index.js 
+		  docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://www.example.com -g gen.conf -r report.html
 
       - name: List Files
         run: |

@@ -21,7 +21,8 @@ jobs:
       - name: ZAP Scan
         uses: docker://owasp/zap2docker-stable
         with:
-          args: cd dist/index.js && docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t  https://shibin-chrisby.yolasite.com/ -x report_xml.xml
+          args: zap-baseline.py -t  https://shibin-chrisby.yolasite.com/ -x /github/workspace/report_xml.xml
+        working-directory: dist/index.js
 
       - name: List Files
         run: |

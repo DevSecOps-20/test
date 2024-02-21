@@ -14,9 +14,7 @@ jobs:
 
       - name: docker pull zap 
         run: |
-         touch report_xml.xml
-         chmod a+w report_xml.xml
-         docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py -t https://shibin-chrisby.yolasite.com/ -x report_xml.xml
+         docker run -v $(pwd):/zap/wrk/:rw -t naveen2131/action:zap zap-full-scan.py -t https://shibin-chrisby.yolasite.com/ -x report_xml.xml
          
       - name: list
         run: |

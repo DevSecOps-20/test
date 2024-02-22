@@ -11,7 +11,7 @@
       runs-on: ubuntu-latest
       name: ZAP Scan
       steps:        
-    
+
         - name: ZAP Scan
           uses: DevSecOps-20/action-baseline@master
           with:

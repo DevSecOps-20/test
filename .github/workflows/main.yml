@@ -20,7 +20,7 @@
             target: 'https://shibin-chrisby.yolasite.com/'
             cmd_options: '-x report_xml.xml'
 
-        - name: List Files
+        - name: List File & view
           run: |
             ls
             cat report_xml.xml

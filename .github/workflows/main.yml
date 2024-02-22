@@ -13,7 +13,7 @@
       steps:        
 
         - name: ZAP Scan
-          if: ${{ success() }}
+          if: always()
           uses: DevSecOps-20/action-baseline@master
           with:
             token: ${{ secrets.GITHUB_TOKEN }}

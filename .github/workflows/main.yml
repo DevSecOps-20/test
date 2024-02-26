@@ -26,7 +26,7 @@
         - name: anchore sbom 
           uses: DevSecOps-20/sbom-action@main
           with:
-            format: "cyclonedx"
+            format: "cyclonedx.json"
             upload-artifact: "sbom.xml"
 
         - name: ls

@@ -23,7 +23,7 @@
           run: | 
             ls target
 
-        - name: anchore sbom 
+        - name: anchore sbom action
           uses: anchore/sbom-action@v0
           with:
             format: "cyclonedx-json@1.4"

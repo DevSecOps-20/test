@@ -30,3 +30,9 @@
             path: "target"
             format: "cyclonedx"
             upload-artifact: "target/sbom.xml"
+
+        - name: upload artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: sbom
+            path: target/sbom.xml

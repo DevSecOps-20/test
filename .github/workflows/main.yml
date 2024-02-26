@@ -25,11 +25,15 @@
             ls target
 
         - name: anchore sbom 
-          uses: anchore/sbom-action@v0
+          uses: DevSecOps-20/sbom-action@main
           with:
             path: "target"
             format: "cyclonedx"
             upload-artifact: "target/sbom.xml"
+
+        - name: ls
+          run: |
+            ls 
 
         - name: upload artifact
           uses: actions/upload-artifact@v2

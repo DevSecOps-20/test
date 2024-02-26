@@ -26,9 +26,9 @@
         - name: anchore sbom 
           uses: DevSecOps-20/sbom-action@main
           with:
-            path: "target"
+            path: "target/devops-integration.jar"
             format: "cyclonedx"
-            upload-artifact: "target/sbom.xml"
+            upload-artifact: "sbom.xml"
 
         - name: ls
           run: |
@@ -38,4 +38,4 @@
           uses: actions/upload-artifact@v2
           with:
             name: sbom
-            path: target/sbom.xml
+            path: sbom.xml

@@ -24,7 +24,7 @@
             ls 
             ls target
 
-        - name: anchore sbom action
+        - name: anchore sbom 
           uses: anchore/sbom-action@v0
           with:
             path: "target"

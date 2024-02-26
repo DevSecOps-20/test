@@ -20,8 +20,7 @@
             mvn clean install -DskipTests
 
         - name: ls
-          run: |
-            ls 
+          run: | 
             ls target
 
         - name: anchore sbom 

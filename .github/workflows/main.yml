@@ -26,7 +26,6 @@
         - name: anchore sbom 
           uses: DevSecOps-20/sbom-action@main
           with:
-            path: "${{ github.workspace }}/target"
             format: "cyclonedx"
             upload-artifact: "sbom.xml"
 

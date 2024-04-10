@@ -3,7 +3,7 @@ name: Gitleaks Cron Job
 on:
   push:
     branches:
-      - android
+      - main
 
 
 jobs:

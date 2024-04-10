@@ -1,15 +1,15 @@
-name: Cron Job
+name: Gitleaks Cron Job
 
 on:
   push:
     branches:
-      - main
+      - android
 
 
 jobs:
   Gitleaks:
     name: Secret Scan
-    runs-on: generic-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4

@@ -7,7 +7,7 @@ spec:
   - list:
       elements:
       - name: devsecops-uat
-        cluster: m2p-dso-uat-01
+        cluster: dso
   syncPolicy:
     preserveResourcesOnDeletion: true
   template:

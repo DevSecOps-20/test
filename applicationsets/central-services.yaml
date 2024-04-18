@@ -2,32 +2,29 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: devsecops-central-services
-spec:  
+spec:
   generators:
-  - clusters:
-      selector:
-        matchExpressions:
-        - {key: m2pfintech.com/environment-type, operator: In, values: [nil]}
+  - list:
+      elements:
+      - name: devsecops-uat
+        cluster: m2p-dso-uat-01
+  syncPolicy:
+    preserveResourcesOnDeletion: true
   template:
     metadata:
       name: 'devsecops-central-services'
     spec:
       project: 'default'
       source:
-        repoURL: https://github.com/m2pfintech/DevSecOps.git
+        repoURL: git@github.com:DevSecOps-20/test.git
         targetRevision: master
         path: 'charts/central-services'
-        helm:
-          valueFiles:
-            - 'private-values.yaml'
-            - 'public-values.yaml'
-            - 'ca.yaml'
       destination:
-        server: '{{server}}'
+        name: '{{cluster}}'
         namespace: 'stackrox'
       syncPolicy:
-        syncOptions:    
+        syncOptions:
         - CreateNamespace=true
         automated:
-          prune: true
-          selfHeal: true
+          prune: false
+          selfHeal: false

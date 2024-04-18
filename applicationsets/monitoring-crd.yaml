@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: devsecops-monitoring-crd
+spec:
+  generators:
+  - list:
+      elements:
+      - name: devsecops-uat
+        cluster: m2p-dso-uat-01
+  template:
+    metadata:
+      name: 'devsecops-monitoring-crd'
+    spec:
+      project: 'default'
+      source:
+        repoURL: https://github.com/m2pfintech/DevSecOps.git
+        targetRevision: master
+        path: 'charts/monitoring-crd'
+        helm:
+          skipCrds: true
+          ignoreMissingValueFiles: true
+      destination:
+        name: '{{cluster}}'
+        namespace: 'monitoring'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        - Replace=true
+        automated:
+          prune: true
+          selfHeal: true

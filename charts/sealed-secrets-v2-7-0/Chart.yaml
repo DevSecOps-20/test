@@ -1,0 +1,12 @@
+apiVersion: v2
+name: sealed-secrets
+description: A Helm chart for sealed-secrets deployment
+
+type: application
+version: "2.7.0"
+appVersion: 2.7.0
+
+dependencies:
+- name: sealed-secrets
+  version: "2.7.0"
+  repository: "https://repo.m2pfintech.com/repository/helm"

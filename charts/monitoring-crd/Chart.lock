@@ -1,0 +1,6 @@
+dependencies:
+- name: monitoring-crd
+  repository: https://repo.m2pfintech.com/repository/helm
+  version: 44.3.1
+digest: sha256:f1e0e3f48c1659354167a8f68f0a50ba46f6c85edc77f9769ee2e4099f21795e
+generated: "2023-05-26T08:01:56.393493+05:30"

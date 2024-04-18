@@ -1,0 +1,22 @@
+{{- range $pvc := $.Values.pvc }}
+{{ if and (eq $pvc.enabled true) (eq $pvc.type "default") }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ required "PVC name is mandatory" $pvc.name }}
+  labels:
+    {{- include "service.labels" $ | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: {{ required "Storage class is mandatory" $pvc.storageClass}}
+  {{- if $pvc.volumeName }}
+  volumeMode: Filesystem
+  volumeName: {{ $pvc.volumeName}}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ required "Storage size is mandatory" $pvc.storageSize}}
+{{- end }}
+{{- end }}

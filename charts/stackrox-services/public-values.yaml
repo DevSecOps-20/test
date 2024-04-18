@@ -1,0 +1,50 @@
+stackrox-secured-cluster-services:
+  enabled: true
+  allowNonstandardReleaseName: true
+  system:
+    enablePodSecurityPolicies: false
+  imagePullSecrets:
+    useExisting: dockerhub
+
+  image:
+    main:
+      registry: m2pfintech01
+      name: infra_softwares
+      tag: rhacs-main-rhel8-4.3.4
+    collector:
+      registry: m2pfintech01
+      name: infra_softwares
+      tag: rhacs-collector-slim-rhel8-4.3.4
+  sensor:
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "100m"
+      limits:
+        memory: "500Mi"
+        cpu: "300m"
+  dynamic:
+    resources:
+      requests:
+        memory: "100Mi"
+        cpu: "50m"
+      limits:
+        memory: "500Mi"
+        cpu: "500m"
+        
+  # Collector specific configuration.
+  collector:
+    resources:
+      requests:
+        memory: "320Mi"
+        cpu: "50m"
+      limits:
+        memory: "600Mi"
+        cpu: "100m"
+    complianceResources:
+      requests:
+        memory: "10Mi"
+        cpu: "10m"
+      limits:
+        memory: "500Mi"
+        cpu: "500m"

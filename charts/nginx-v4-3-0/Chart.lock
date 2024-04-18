@@ -1,0 +1,6 @@
+dependencies:
+- name: ingress-nginx
+  repository: https://repo.m2pfintech.com/repository/helm
+  version: 4.3.0
+digest: sha256:ef4fe4c90c48f483e559a108b130102cf0dc2ae35b1b93829e0a8b0472748517
+generated: "2022-12-23T16:27:24.3642881+05:30"

@@ -1,0 +1,115 @@
+stackrox-secured-cluster-services:
+  enabled: true
+  clusterName:  "m2p-dso-uat-01"
+  centralEndpoint: wss://poc-k8ssecurity.m2pfintech.dev:443
+
+admissionControl:
+    serviceTLS:
+        cert: |
+            -----BEGIN CERTIFICATE-----
+            MIIDZDCCAkygAwIBAgIIerZ6ydTpzBMwDQYJKoZIhvcNAQELBQAwKTEnMCUGA1UE
+            AxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTI0MDQwNTA2NDcw
+            MFoXDTI1MDQwNTA3NDcwMFowgbsxLTArBgNVBAoTJDkxOWZiMzYyLWM1NDktNDJh
+            Mi1hMGEzLWIyMjY1MjY1MTFmYTEiMCAGA1UECwwZQURNSVNTSU9OX0NPTlRST0xf
+            U0VSVklDRTFIMEYGA1UEAww/QURNSVNTSU9OX0NPTlRST0xfU0VSVklDRTogMDAw
+            MDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwMRwwGgYDVQQFExM4ODQy
+            Mzg5OTI1NjY3NjU0Njc1MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEq5wk+kOd
+            gMdj99zfLBPKMBFdq5qTDGh9Xiuj4L71Vavs4CTBguCm0ZkAj7aZXJbiWDEHHzXZ
+            bg+RmQ4zeTkDKaOBxzCBxDAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYB
+            BQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFGA1UuZsrj28
+            +s6yILgCTCbSVSEjMB8GA1UdIwQYMBaAFMYRM6RgPl9NsO/zcsd/b26WYr6QMEUG
+            A1UdEQQ+MDyCGmFkbWlzc2lvbi1jb250cm9sLnN0YWNrcm94gh5hZG1pc3Npb24t
+            Y29udHJvbC5zdGFja3JveC5zdmMwDQYJKoZIhvcNAQELBQADggEBAAakUXoVqqcg
+            sSTcpAwakykMNmkhkDG373VyVc8DcmEAaM3LA2ipRIPb+AtTtzAKGTKKcCs4yB/K
+            AlDTbf9Qgrqc4HIU8gXMMbQqFSV2v7lwDvlH8izUqGhruBe93+Zz1FAso9LBAh5n
+            5bf63+vuOOGGT2Zn/PmKYIlPQOBGKS3qJ/Yuu1mes80SgdQkjH7KPFutQGHXAbva
+            oYYA2+kEbjaMF160TY9yXObObXbqV2ZeEayemv793xZFRWHONi7uktG9UMNcGW7z
+            QT8XcuRsdNGlMW3E72YnHE8V+6DSbysirhBNqMULNxST8bdPcNE0vyn9lqStpa0k
+            bykUsD6iWUU=
+            -----END CERTIFICATE-----
+        key: |
+            -----BEGIN EC PRIVATE KEY-----
+            MHcCAQEEIKEWls40wE6wbroXbDoFzUhPSQGD0kr4MgohZiFuWVX+oAoGCCqGSM49
+            AwEHoUQDQgAEq5wk+kOdgMdj99zfLBPKMBFdq5qTDGh9Xiuj4L71Vavs4CTBguCm
+            0ZkAj7aZXJbiWDEHHzXZbg+RmQ4zeTkDKQ==
+            -----END EC PRIVATE KEY-----
+ca:
+    cert: |
+        -----BEGIN CERTIFICATE-----
+        MIIDPjCCAiagAwIBAgIRAK9GCNioCRUVNeb5fjFzo0wwDQYJKoZIhvcNAQELBQAw
+        KTEnMCUGA1UEAxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTI0
+        MDQwNDExMTMyMVoXDTI5MDQwMzExMTMyMVowKTEnMCUGA1UEAxMeU3RhY2tSb3gg
+        Q2VydGlmaWNhdGUgQXV0aG9yaXR5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+        CgKCAQEA4XhpZDq6MD4HXRGttiBGKt8naGJqAwsQJ1ZvQdjW6ANkxhDNV1y9b+C3
+        LTCVJz+FssBoU6xR191g9/XdZMWIkLDJGx/h2k0xWIwJfn6hAc63qrsnpcdgT/Ic
+        w1hv4fIY2gsoWGC0/vKWUKiLzYSdxffXbUrL6YANlww7DfcmC3OA3Q45rPiRm/1k
+        Nb31vbnFud/01ROnEi4rOfpTQVA3M1seTSWMghAqAAF53wpZViGwdgWFl7EqkOpN
+        WY5fMp/rt7oFbsZ5bHYC5IT5knPkH0RrftnufddVjVKXiNSc5py24fXU0c3XjcMn
+        IVvMBQ3d8FQuN4Q3OIsqf5Yrf3BfqQIDAQABo2EwXzAOBgNVHQ8BAf8EBAMCAqQw
+        HQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMA8GA1UdEwEB/wQFMAMBAf8w
+        HQYDVR0OBBYEFMYRM6RgPl9NsO/zcsd/b26WYr6QMA0GCSqGSIb3DQEBCwUAA4IB
+        AQAWSSg+kqiKSgnXv8XcrNBEx039NZXNWcKuOfr0J3qY8YBnLQpRPXq7HWeHViHo
+        99tMT8t5uDtpQeUL46NeqIfpvBqNfnf7U4SC4zx52jLRkFK6q+r/thRf6z9SWRmC
+        T8yu8nl+YP9HnpGnU81/aAnj6smJwlWygTStpVNJ4sXkxDvX/sSmDqasBqGNLjm+
+        z3iX5ZLDRKACjHvxjKO77564HAw4mg4lAaOa/qf7cd406ooiuL0H66LsAPa/Edb2
+        861ALHU/6VqYGWaLJYW/s3ksSSTN/dbmq1IVMQhxXuYXGRFMpHQUkcPkvY8GuAkL
+        X7kSJrjRYIKzJRh6L1TQncJl
+        -----END CERTIFICATE-----
+collector:
+    serviceTLS:
+        cert: |
+            -----BEGIN CERTIFICATE-----
+            MIIDRjCCAi6gAwIBAgIJANPPN+duTPzmMA0GCSqGSIb3DQEBCwUAMCkxJzAlBgNV
+            BAMTHlN0YWNrUm94IENlcnRpZmljYXRlIEF1dGhvcml0eTAeFw0yNDA0MDUwNjQ3
+            MDBaFw0yNTA0MDUwNzQ3MDBaMIGsMS0wKwYDVQQKEyQ5MTlmYjM2Mi1jNTQ5LTQy
+            YTItYTBhMy1iMjI2NTI2NTExZmExGjAYBgNVBAsMEUNPTExFQ1RPUl9TRVJWSUNF
+            MUAwPgYDVQQDDDdDT0xMRUNUT1JfU0VSVklDRTogMDAwMDAwMDAtMDAwMC0wMDAw
+            LTAwMDAtMDAwMDAwMDAwMDAwMR0wGwYDVQQFExQxNTI2MjQ3OTEyOTMwOTQxMjU4
+            MjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABHdSRg9lfGElXrBR+N2lxHDzpKD9
+            KYLqtnYYVGNKU/aIHjs06rwWGPzyfN+2nUCPenYEcSEJvb24RcmDiHmWduujgbcw
+            gbQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+            AjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQWHSMkisfoEHyupnltfQYbz/pamjAf
+            BgNVHSMEGDAWgBTGETOkYD5fTbDv83LHf29ulmK+kDA1BgNVHREELjAsghJjb2xs
+            ZWN0b3Iuc3RhY2tyb3iCFmNvbGxlY3Rvci5zdGFja3JveC5zdmMwDQYJKoZIhvcN
+            AQELBQADggEBAK5tX0yAfhhktkn0Aa53aum02rXGlaej7RbJ1aVO2jwer9tRgPzS
+            JhS4A31CeagJZhnv9GMOP5KDI8/Bw8f9ZnNDCKiZRnwaYbW0VNugxKugl93w7tio
+            smJaIeBhK0d30u0CvB2s8ZaR3KH1Qqhu25lVlWWL9dbtmXdZhiQ2t2vdBxXwMT6O
+            coG5+6AI82zFUhmoN278PXZwZ5hrrqfbu0uz7riqyCR77n05FC3QHXEdK79YAfDP
+            0agrBsKmYC73ny10irWxn+Hp7mwsDTtZYKvJCEzrbM/A6MQDRk7u6UoYRCeJzqAP
+            P3GAHDK3HE1pxGNpnkZX5TiezcBOU828S84=
+            -----END CERTIFICATE-----
+        key: |
+            -----BEGIN EC PRIVATE KEY-----
+            MHcCAQEEIPKGIMrEezA/lbGdc7F5ldVMc3bFrevmecxuC2x10L0EoAoGCCqGSM49
+            AwEHoUQDQgAEd1JGD2V8YSVesFH43aXEcPOkoP0pguq2dhhUY0pT9ogeOzTqvBYY
+            /PJ837adQI96dgRxIQm9vbhFyYOIeZZ26w==
+            -----END EC PRIVATE KEY-----
+sensor:
+    serviceTLS:
+        cert: |
+            -----BEGIN CERTIFICATE-----
+            MIIDVDCCAjygAwIBAgIIDCrRzXX14qgwDQYJKoZIhvcNAQELBQAwKTEnMCUGA1UE
+            AxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTI0MDQwNTA2NDcw
+            MFoXDTI1MDQwNTA3NDcwMFowgaQxLTArBgNVBAoTJDkxOWZiMzYyLWM1NDktNDJh
+            Mi1hMGEzLWIyMjY1MjY1MTFmYTEXMBUGA1UECwwOU0VOU09SX1NFUlZJQ0UxPTA7
+            BgNVBAMMNFNFTlNPUl9TRVJWSUNFOiAwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0w
+            MDAwMDAwMDAwMDAxGzAZBgNVBAUTEjg3Njc0Mzc1Nzg1NDUzMjI2NDBZMBMGByqG
+            SM49AgEGCCqGSM49AwEHA0IABIjwno6SDAJMHycdSufLtVpkkRadH9X5kCt4sd5n
+            YZShGKm18i7ddZpbz0n2znSfkQlmrZagEAzH7RM63vEC68mjgc4wgcswDgYDVR0P
+            AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB
+            Af8EAjAAMB0GA1UdDgQWBBTCea1gDErz8qYMPvfETXTtJLT+BDAfBgNVHSMEGDAW
+            gBTGETOkYD5fTbDv83LHf29ulmK+kDBMBgNVHREERTBDgg9zZW5zb3Iuc3RhY2ty
+            b3iCE3NlbnNvci5zdGFja3JveC5zdmOCG3NlbnNvci13ZWJob29rLnN0YWNrcm94
+            LnN2YzANBgkqhkiG9w0BAQsFAAOCAQEAImXSme7p9Lfn3c4zXZxlMB5FGZq3rItE
+            21SnLdwWxeyeaGP6GFTUlqx+fpDro3Ru+w7U1ODUkb7Kv9wgQkiVrbh8e2B7QaXt
+            eWLQ9xsULTzAuAcOj0xiv8g9m1Ehpq5YSReWHjPSdgAneOBKG7wW3qibVbiI/3fC
+            xBHtfTY8YQAjNu4k8lOEXwped2t8SOSA04vxUVcpiLmU9R7rP0HspCNhEovQjQPA
+            H0PbfVF/4UrawZ+9qt1n3ihxv8hy/H/A5hIk9ZPqLXeKyi4jXwivhO9xXeq6mp+6
+            L5iCgMZtfjQCHQZ/GRxWFt1yp0uVL5hVkeIosVlpXEkgvwVFrGI7/A==
+            -----END CERTIFICATE-----
+        key: |
+            -----BEGIN EC PRIVATE KEY-----
+            MHcCAQEEIEoA+NKWTlMXx2HD8TuViRpcG+MAA23JbeT5uFMvExrJoAoGCCqGSM49
+            AwEHoUQDQgAEiPCejpIMAkwfJx1K58u1WmSRFp0f1fmQK3ix3mdhlKEYqbXyLt11
+            mlvPSfbOdJ+RCWatlqAQDMftEzre8QLryQ==
+            -----END EC PRIVATE KEY-----

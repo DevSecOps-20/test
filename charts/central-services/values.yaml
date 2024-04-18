@@ -1,0 +1,130 @@
+fullnameOverride: poc-tools-nonprod-stackrox-central-services
+
+
+ingress:
+  enabled: true
+  port: 443
+  className: "nginx"
+  hostname: poc-k8ssecurity.m2pfintech.dev
+  name: central
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  path: /
+
+pvc:
+  - name: centraldb
+    enabled: true
+    type: default
+    storageClass: gp3
+    storageSize: 20Gi
+    volumeName: pvc-b58a3156-2efb-491b-9250-fa7646061845
+
+stackrox-central-services:
+  enabled: true
+
+  allowNonstandardReleaseName: true
+
+  imagePullSecrets:
+    useExisting: dockerhub
+
+
+  central:
+    image:
+      registry: m2pfintech01
+      name: infra_softwares
+      tag: "rhacs-main-rhel8-4.3.4"
+    # serviceTLS:
+    #   cert: null
+    #   key: null
+    #   generate: false
+
+    # defaultTLS:
+    #   cert: null
+    #   key: null
+
+    resources:
+      requests:
+        memory: "250Mi"
+        cpu: "250m"
+      limits:
+        memory: "500Mi"
+        cpu: "500m"
+
+    adminPassword:
+      htpasswd: admin:$2a$10$TYe/2YpeW5hWi1w5UG10f.jcX/zHzG.op7YtCokXddRMWk.gFFWaK
+
+    persistence:
+      none: true
+    db:
+      image:
+        registry: m2pfintech01
+        name: infra_softwares
+        tag: "rhacs-central-db-rhel8-4.3.4"
+      password:
+        generate: false
+
+      # serviceTLS:
+      #   cert: null
+      #   key: null
+      #   generate: false
+
+      persistence:
+        persistentVolumeClaim:
+          claimName: "centraldb"
+          createClaim: false
+
+      resources:
+        requests:
+          memory: "250Mi"
+          cpu: "250m"
+        limits:
+          memory: "550Mi"
+          cpu: "500m"
+
+  scanner:
+    replicas: 1
+    image:
+      registry: m2pfintech01
+      name: infra_softwares
+      tag: "rhacs-scanner-rhel8-4.3.4"
+    # ca:
+    #   cert: null
+    #   key: null
+    #   generate: false
+
+    # serviceTLS:
+    #   cert: null
+    #   key: null
+    #   generate: true
+
+    # dbServiceTLS:
+    #   cert: null
+    #   key: null
+    #   generate: true
+
+    autoscaling:
+      disable: true
+
+    resources:
+      requests:
+        memory: "250Mi"
+        cpu: "500m"
+      limits:
+        memory: "500Mi"
+        cpu: "700m"
+
+    dbImage:
+      registry: m2pfintech01
+      name: infra_softwares
+      tag: "rhacs-scanner-db-rhel8-4.3.4"
+
+    dbResources:
+      limits:
+        cpu: 500m
+        memory: 550Mi
+      requests:
+        cpu: 200m
+        memory: 200Mi
+  system:
+    enablePodSecurityPolicies: false

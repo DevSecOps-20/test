@@ -1,0 +1,13 @@
+apiVersion: v2
+name: monitoring-crd
+description: A Helm chart for monitoring-crd deployment
+
+type: application
+version: "44.3.1"
+appVersion: "44.3.1"
+
+dependencies:
+- name: monitoring-crd
+  version: "44.3.1"
+  repository: "https://repo.m2pfintech.com/repository/helm"
+  condition: monitoring-crd.enabled

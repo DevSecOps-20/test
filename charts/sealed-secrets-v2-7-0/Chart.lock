@@ -1,0 +1,6 @@
+dependencies:
+- name: sealed-secrets
+  repository: https://repo.m2pfintech.com/repository/helm
+  version: 2.7.0
+digest: sha256:821d62e51591c59ea812e9cd379d777fd5eff807ebac4b97a23c4d1046aa5433
+generated: "2022-12-23T16:16:22.5147856+05:30"

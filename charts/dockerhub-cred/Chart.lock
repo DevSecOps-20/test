@@ -1,0 +1,6 @@
+dependencies:
+- name: dockerhub-cred
+  repository: https://repo.m2pfintech.com/repository/helm
+  version: 1.0.0
+digest: sha256:2908e791a87dc9f3497b683950d78a07fc8aeaf71727340e0639c93318175aaa
+generated: "2023-04-21T19:01:40.82837+05:30"

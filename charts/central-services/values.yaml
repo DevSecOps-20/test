@@ -48,7 +48,7 @@ stackrox-central-services:
         memory: "250Mi"
         cpu: "250m"
       limits:
-        memory: "500Mi"
+        memory: "550Mi"
         cpu: "550m"
 
     adminPassword:

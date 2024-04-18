@@ -1,30 +1,30 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: devsecops-nginix
-spec:
-  generators:
-  - list:
-      elements:
-      - name: devsecops-uat
-        cluster: m2p-dso-uat-01
-  syncPolicy:
-    preserveResourcesOnDeletion: true
-  template:
-    metadata:
-      name: 'devsecops-nginix-uat'
-    spec:
-      project: 'default'
-      source:
-        repoURL: https://github.com/m2pfintech/DevSecOps.git
-        targetRevision: master
-        path: 'charts/nginx-v4-3-0'
-      destination:
-        name: '{{cluster}}'
-        namespace: 'nginx'
-      syncPolicy:
-        syncOptions:
-        - CreateNamespace=true
-        automated:
-          prune: true
-          selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: devsecops-nginix
+# spec:
+#   generators:
+#   - list:
+#       elements:
+#       - name: devsecops-uat
+#         cluster: m2p-dso-uat-01
+#   syncPolicy:
+#     preserveResourcesOnDeletion: true
+#   template:
+#     metadata:
+#       name: 'devsecops-nginix-uat'
+#     spec:
+#       project: 'default'
+#       source:
+#         repoURL: https://github.com/m2pfintech/DevSecOps.git
+#         targetRevision: master
+#         path: 'charts/nginx-v4-3-0'
+#       destination:
+#         name: '{{cluster}}'
+#         namespace: 'nginx'
+#       syncPolicy:
+#         syncOptions:
+#         - CreateNamespace=true
+#         automated:
+#           prune: true
+#           selfHeal: true

@@ -18,7 +18,7 @@ pvc:
     type: default
     storageClass: gp3
     storageSize: 20Gi
-    volumeName: pvc-b58a3156-2efb-491b-9250-fa7646061845
+    # volumeName: pvc-b58a3156-2efb-491b-9250-fa7646061845
 
 stackrox-central-services:
   enabled: true
@@ -62,7 +62,7 @@ stackrox-central-services:
         name: infra_softwares
         tag: "rhacs-central-db-rhel8-4.3.4"
       password:
-        generate: false
+        generate: true
 
       # serviceTLS:
       #   cert: null

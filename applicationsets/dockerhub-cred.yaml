@@ -1,32 +1,32 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: devsecops-dockerhub-cred
-spec:
-  generators:
-  - list:
-      elements:
-      - name: devsecops-uat
-        cluster: m2p-dso-uat-01
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: devsecops-dockerhub-cred
+# spec:
+#   generators:
+#   - list:
+#       elements:
+#       - name: devsecops-uat
+#         cluster: m2p-dso-uat-01
 
-  template:
-    metadata:
-      name: 'devsecops-dockerhub-cred'
-    spec:
-      project: 'default'
-      source:
-        repoURL: https://github.com/m2pfintech/DevSecOps.git
-        targetRevision: master
-        path: 'charts/dockerhub-cred'
-        helm:
-          valueFiles:
-          - '{{cluster}}-values.yaml'
-      destination:
-        name: '{{cluster}}'
-        namespace: 'dockerhub'
-      syncPolicy:
-        syncOptions:
-        - CreateNamespace=true
-        automated:
-          prune: true
-          selfHeal: true
+#   template:
+#     metadata:
+#       name: 'devsecops-dockerhub-cred'
+#     spec:
+#       project: 'default'
+#       source:
+#         repoURL: https://github.com/m2pfintech/DevSecOps.git
+#         targetRevision: master
+#         path: 'charts/dockerhub-cred'
+#         helm:
+#           valueFiles:
+#           - '{{cluster}}-values.yaml'
+#       destination:
+#         name: '{{cluster}}'
+#         namespace: 'dockerhub'
+#       syncPolicy:
+#         syncOptions:
+#         - CreateNamespace=true
+#         automated:
+#           prune: true
+#           selfHeal: true

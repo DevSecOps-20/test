@@ -48,7 +48,7 @@ stackrox-central-services:
         memory: "250Mi"
         cpu: "250m"
       limits:
-        memory: "500Mi"
+        memory: "550Mi"
         cpu: "550m"
 
     adminPassword:
@@ -79,7 +79,7 @@ stackrox-central-services:
           memory: "250Mi"
           cpu: "250m"
         limits:
-          memory: "550Mi"
+          memory: "500Mi"
           cpu: "500m"
 
   scanner:
@@ -111,7 +111,7 @@ stackrox-central-services:
         memory: "250Mi"
         cpu: "500m"
       limits:
-        memory: "500Mi"
+        memory: "550Mi"
         cpu: "700m"
 
     dbImage:
@@ -122,7 +122,7 @@ stackrox-central-services:
     dbResources:
       limits:
         cpu: 500m
-        memory: 550Mi
+        memory: 500Mi
       requests:
         cpu: 200m
         memory: 200Mi

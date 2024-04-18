@@ -33,7 +33,7 @@ stackrox-central-services:
     image:
       registry: m2pfintech01
       name: infra_softwares
-      tag: "rhacs-main-rhel8-4.3.4"
+      tag: "rhacs-main-rhel8-4.3.5"
     # serviceTLS:
     #   cert: null
     #   key: null
@@ -60,7 +60,7 @@ stackrox-central-services:
       image:
         registry: m2pfintech01
         name: infra_softwares
-        tag: "rhacs-central-db-rhel8-4.3.4"
+        tag: "rhacs-central-db-rhel8-4.3.5"
       password:
         generate: true
 
@@ -87,7 +87,7 @@ stackrox-central-services:
     image:
       registry: m2pfintech01
       name: infra_softwares
-      tag: "rhacs-scanner-rhel8-4.3.4"
+      tag: "rhacs-scanner-rhel8-4.3.5"
     # ca:
     #   cert: null
     #   key: null
@@ -117,7 +117,7 @@ stackrox-central-services:
     dbImage:
       registry: m2pfintech01
       name: infra_softwares
-      tag: "rhacs-scanner-db-rhel8-4.3.4"
+      tag: "rhacs-scanner-db-rhel8-4.3.5"
 
     dbResources:
       limits:

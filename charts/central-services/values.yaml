@@ -62,7 +62,7 @@ stackrox-central-services:
         name: infra_softwares
         tag: "rhacs-central-db-rhel8-4.3.5"
       password:
-        generate: true
+        generate: false
 
       # serviceTLS:
       #   cert: null
